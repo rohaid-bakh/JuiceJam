@@ -9,6 +9,10 @@ public class Attacks : MonoBehaviour
     [SerializeField] protected Transform weapon;
     [SerializeField] protected float weaponRange;
     public LayerMask bossLayer;
+    private bool meleeAttack = true;
+    private bool rangedAttack = true;
+    [SerializeField] protected GameObject projectile;
+    [SerializeField] protected Transform shotPoint;
     void Awake()
     {
         _playerInputActions = new PlayerInput();
@@ -17,7 +21,8 @@ public class Attacks : MonoBehaviour
     private void OnEnable()
     {
         _playerInputActions.Attack.Enable();
-        _playerInputActions.Attack.Melee.performed += _ => Attack();
+        _playerInputActions.Attack.Melee.performed += _ => MeleeAttack();
+        _playerInputActions.Attack.Ranged.performed += _ => RangedAttack();
     }
 
     private void OnDisable()
@@ -26,19 +31,46 @@ public class Attacks : MonoBehaviour
         _playerInputActions.Attack.Melee.Disable();
     }
 
-    public void Attack(){
-        Debug.Log("Pressed Melee");
-        Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon.position, weaponRange, bossLayer);
-
-        foreach(Collider2D boss in bosses) {
-            Debug.Log("Caught Boss");
+    public void MeleeAttack()
+    {
+        if (meleeAttack)
+        {
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon.position, weaponRange, bossLayer);
+            foreach (Collider2D boss in bosses)
+            {
+                boss.GetComponent<Boss>().takeDamage(10f);
+            }
+            meleeAttack = false;
+            StartCoroutine(MeleeAttackWait());
         }
     }
 
-    
-    void OnDrawGizmos()
+    public void RangedAttack()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(weapon.position, weaponRange);
+        if (rangedAttack)
+        {
+            Instantiate(projectile, shotPoint.position, transform.rotation);
+            rangedAttack = false;
+            StartCoroutine(RangedAttackWait());
+        }
     }
+    protected IEnumerator MeleeAttackWait()
+    {
+        yield return new WaitForSeconds(1f);
+        meleeAttack = true;
+    }
+    protected IEnumerator RangedAttackWait()
+    {
+        yield return new WaitForSeconds(1f);
+        rangedAttack = true;
+    }
+
+    //UNCOMMENT WHEN DEBUGGING
+    // void OnDrawGizmos()
+    // {
+    //     if (weapon == null) return;
+
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(weapon.position, weaponRange);
+    // }
 }
