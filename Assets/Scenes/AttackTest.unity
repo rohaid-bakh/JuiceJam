@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 578477509}
   - component: {fileID: 578477508}
   - component: {fileID: 578477510}
+  - component: {fileID: 578477511}
   m_Layer: 3
   m_Name: TestBoss
   m_TagString: Untagged
@@ -660,11 +661,55 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &578477511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578477507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62db0810cb48e6b4e8cc1f4ed2afd0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: b9f6b806c30829c4198b8a11beb393bd, type: 2}
+  CurrHealth: 100
 --- !u!4 &638400510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1629401376321934846, guid: 6b7ef7b474935ba439dc71669c018c33, type: 3}
   m_PrefabInstance: {fileID: 2141644129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &638513964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638513965}
+  m_Layer: 0
+  m_Name: ShotPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638513965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638513964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 816834124}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &767487708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1629401376321934846, guid: 6b7ef7b474935ba439dc71669c018c33, type: 3}
@@ -682,6 +727,7 @@ GameObject:
   - component: {fileID: 816834123}
   - component: {fileID: 816834125}
   - component: {fileID: 816834126}
+  - component: {fileID: 816834127}
   m_Layer: 0
   m_Name: TestMC
   m_TagString: Untagged
@@ -752,6 +798,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408443770}
+  - {fileID: 638513965}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -802,6 +849,21 @@ MonoBehaviour:
   bossLayer:
     serializedVersion: 2
     m_Bits: 8
+  projectile: {fileID: 434000656074967625, guid: fe13f39f8ced125458a648a181574157, type: 3}
+  shotPoint: {fileID: 638513965}
+--- !u!114 &816834127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816834122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847a6adec42d8a643b2f669e64778091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 20
 --- !u!4 &816913546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1629401376321934846, guid: 6b7ef7b474935ba439dc71669c018c33, type: 3}
