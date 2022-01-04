@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileName: Test Projectile
   damageAmount: 20
-  attackCoolDown: 1.5
-  speed: 30
+  attackCoolDown: 1
+  speed: 70
   distance: 0.5
-  lifeTime: 0.8
+  lifeTime: 1
   launch: {fileID: 0}

@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 816834125}
   - component: {fileID: 816834126}
   - component: {fileID: 816834127}
+  - component: {fileID: 816834128}
   m_Layer: 0
   m_Name: TestMC
   m_TagString: Untagged
@@ -864,6 +865,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
+--- !u!70 &816834128
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816834122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.101519585}
+  m_Size: {x: 4, y: 5.827341}
+  m_Direction: 0
 --- !u!4 &816913546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1629401376321934846, guid: 6b7ef7b474935ba439dc71669c018c33, type: 3}
