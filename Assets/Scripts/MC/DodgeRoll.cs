@@ -6,9 +6,11 @@ public class DodgeRoll : MonoBehaviour
     [SerializeField] protected Collider2D hitbox;
     protected PlayerInput _playerInputActions;
     private float dodgeTime = 1f;
+    private float fixedDeltaTime;
     void Awake()
     {
         _playerInputActions = new PlayerInput();
+        fixedDeltaTime = Time.fixedDeltaTime;
     }
 
     private void OnEnable()
@@ -29,7 +31,11 @@ public class DodgeRoll : MonoBehaviour
     }
 
     private IEnumerator ReturnHitbox(){
+        Time.timeScale = .5f;
+        Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
         yield return new WaitForSeconds(dodgeTime);
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
         hitbox.enabled = true;
     }
 
