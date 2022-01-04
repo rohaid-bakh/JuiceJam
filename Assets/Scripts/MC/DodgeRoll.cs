@@ -24,7 +24,6 @@ public class DodgeRoll : MonoBehaviour
     }
 
     private void Dodge(){
-        Debug.Log("Is Dodging");
         hitbox.enabled = false;
         StartCoroutine(ReturnHitbox());
     }
