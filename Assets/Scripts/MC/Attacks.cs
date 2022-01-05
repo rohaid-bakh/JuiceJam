@@ -39,6 +39,7 @@ public class Attacks : MonoBehaviour
             foreach (Collider2D boss in bosses)
             {
                 boss.GetComponent<Boss>().takeDamage(10f);
+                CameraShake.Trauma = 0.22f;
             }
             meleeAttack = false;
             StartCoroutine(MeleeAttackWait());
@@ -51,6 +52,7 @@ public class Attacks : MonoBehaviour
         {
             Instantiate(projectile, shotPoint.position, transform.rotation);
             rangedAttack = false;
+            CameraShake.Trauma = 0.4f;
             StartCoroutine(RangedAttackWait());
         }
     }
@@ -65,12 +67,12 @@ public class Attacks : MonoBehaviour
         rangedAttack = true;
     }
 
-    //UNCOMMENT WHEN DEBUGGING
-    // void OnDrawGizmos()
-    // {
-    //     if (weapon == null) return;
+    // UNCOMMENT WHEN DEBUGGING
+    void OnDrawGizmos()
+    {
+        if (weapon == null) return;
 
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(weapon.position, weaponRange);
-    // }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(weapon.position, weaponRange);
+    }
 }
