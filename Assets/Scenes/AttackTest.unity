@@ -692,6 +692,7 @@ MonoBehaviour:
   CurrHealth: 100
   hitFlash: {fileID: 2100000, guid: b28fdac4693aa3f419871bc26ebc0cb3, type: 2}
   flashDuration: 0.2
+  BossExplosion: {fileID: 2201548988533149530, guid: 407f5a8b507d91c46a65db95528151dd, type: 3}
 --- !u!61 &578477512
 BoxCollider2D:
   m_ObjectHideFlags: 0

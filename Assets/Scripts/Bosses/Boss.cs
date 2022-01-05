@@ -10,6 +10,8 @@ public class Boss : MonoBehaviour
     private SpriteRenderer renderer;
     private Material defaultMaterial;
     [SerializeField] private float flashDuration;
+
+    [SerializeField]private GameObject BossExplosion;
     void Awake()
     {
         CurrHealth = _stats.healthAmount;
@@ -28,6 +30,7 @@ public class Boss : MonoBehaviour
     }
 
     private void DestroySelf(){
+        Instantiate(BossExplosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
