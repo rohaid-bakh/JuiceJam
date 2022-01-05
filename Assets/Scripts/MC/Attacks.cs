@@ -5,17 +5,27 @@ using UnityEngine.InputSystem;
 
 public class Attacks : MonoBehaviour
 {
+    
     protected PlayerInput _playerInputActions;
+    [Header("Ranged Weapon Direction")]
     [SerializeField] protected Transform[] weapon;
     // 0 is Left, 1 is Right , 2 is Up, 3 is Down
+    public int direction;
+    [Header("Ranged Weapon Range")]
     [SerializeField] protected float weaponRange;
     public LayerMask bossLayer;
     private bool meleeAttack = true;
     private bool rangedAttack = true;
+
+    [Header("Projectile Stats")]
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
 
-    public int direction;
+    [Header("Cool Down")]
+    [SerializeField] private float rangeCooldown = .6f;
+    [SerializeField] private float meleeCooldown = .6f;
+
+   
     void Awake()
     {
         _playerInputActions = new PlayerInput();
@@ -61,12 +71,12 @@ public class Attacks : MonoBehaviour
     }
     protected IEnumerator MeleeAttackWait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(meleeCooldown);
         meleeAttack = true;
     }
     protected IEnumerator RangedAttackWait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(rangeCooldown);
         rangedAttack = true;
     }
 

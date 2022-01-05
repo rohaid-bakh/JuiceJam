@@ -261,9 +261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b9f6b806c30829c4198b8a11beb393bd, type: 2}
   CurrHealth: 100
-  hitFlash: {fileID: 2100000, guid: b28fdac4693aa3f419871bc26ebc0cb3, type: 2}
-  flashDuration: 0.2
-  BossExplosion: {fileID: 2201548988533149530, guid: 407f5a8b507d91c46a65db95528151dd, type: 3}
 --- !u!61 &468923079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -440,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 2435787964905695172, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435787964905695176, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
+      propertyPath: flashDuration
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}

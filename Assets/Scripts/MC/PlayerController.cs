@@ -7,12 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     PlayerInput playerInput;
     InputAction movement;
+    [Header("Movement")]
     public float movementSpeed = 3.0f;
     float smooth = 3.0f;
+    [Header("Animation")]
     [SerializeField] private Animator anim;
     private Vector2 prevInput;
-    [SerializeField] Transform shotPoint;
     private Attacks attack;
+    [Header("Direction")]
+    [SerializeField] Transform shotPoint;
 
     void Awake()
 
@@ -33,16 +36,12 @@ public class PlayerController : MonoBehaviour
         movement.Disable();
     }
 
-    void Update()
-    {
-
-    }
 
     void FixedUpdate()
     {
         Vector2 input = movement.ReadValue<Vector2>().normalized;
 
-        anim.SetFloat("Speed", input.sqrMagnitude);
+        anim.SetFloat("Speed", input.sqrMagnitude); // Needed to see if at rest/not
 
         if (input.sqrMagnitude == 0)
         {
@@ -60,28 +59,23 @@ public class PlayerController : MonoBehaviour
 
 
         //Rotation
-
         switch (input)
         {
             case var _ when input.y < 0:
                 shotPoint.rotation = Quaternion.Euler(0, 0, 180);
                 attack.direction = 3;
-                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.y > 0:
                 shotPoint.rotation = Quaternion.Euler(0, 0, 0);
                 attack.direction = 2;
-                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.x < 0:
                 shotPoint.rotation = Quaternion.Euler(0, 0, 90);
                 attack.direction = 0;
-                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.x > 0:
                 shotPoint.rotation = Quaternion.Euler(0, 0, 270);
                 attack.direction = 1;
-                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
 
             case var _ when input.x == 0 && input.y == 0:
