@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileStats _stats;
     [SerializeField] private LayerMask bossLayer;
+    [SerializeField] private GameObject Explosion;
 
     void Start()
     {
@@ -20,8 +21,11 @@ public class Projectile : MonoBehaviour
         }
         transform.Translate(Vector2.up * _stats.speed * Time.deltaTime);
     }
+
     void DestroyProjectile()
     {
+        CameraShake.Trauma = 0.2f;
+        Instantiate(Explosion,transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
