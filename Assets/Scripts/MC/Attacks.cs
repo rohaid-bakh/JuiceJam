@@ -6,13 +6,16 @@ using UnityEngine.InputSystem;
 public class Attacks : MonoBehaviour
 {
     protected PlayerInput _playerInputActions;
-    [SerializeField] protected Transform weapon;
+    [SerializeField] protected Transform[] weapon;
+    // 0 is Left, 1 is Right , 2 is Up, 3 is Down
     [SerializeField] protected float weaponRange;
     public LayerMask bossLayer;
     private bool meleeAttack = true;
     private bool rangedAttack = true;
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
+
+    public int direction;
     void Awake()
     {
         _playerInputActions = new PlayerInput();
@@ -35,7 +38,7 @@ public class Attacks : MonoBehaviour
     {
         if (meleeAttack)
         {
-            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon.position, weaponRange, bossLayer);
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, weaponRange, bossLayer);
             foreach (Collider2D boss in bosses)
             {
                 boss.GetComponent<Boss>().takeDamage(10f);
@@ -50,7 +53,7 @@ public class Attacks : MonoBehaviour
     {
         if (rangedAttack)
         {
-            Instantiate(projectile, shotPoint.position, transform.rotation);
+            Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             rangedAttack = false;
             CameraShake.Trauma = 0.4f;
             StartCoroutine(RangedAttackWait());
@@ -73,6 +76,6 @@ public class Attacks : MonoBehaviour
         if (weapon == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(weapon.position, weaponRange);
+        Gizmos.DrawWireSphere(weapon[direction].position, weaponRange);
     }
 }

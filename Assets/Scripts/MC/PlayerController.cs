@@ -9,12 +9,17 @@ public class PlayerController : MonoBehaviour
     InputAction movement;
     public float movementSpeed = 3.0f;
     float smooth = 3.0f;
+    [SerializeField] private Animator anim;
+    private Vector2 prevInput;
+    [SerializeField] Transform shotPoint;
+    private Attacks attack;
 
     void Awake()
 
     {
         playerInput = new PlayerInput();
         movement = new InputAction();
+        attack = GetComponent<Attacks>();
     }
 
     void OnEnable()
@@ -35,27 +40,51 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 input = movement.ReadValue<Vector2>();
+        Vector2 input = movement.ReadValue<Vector2>().normalized;
+
+        anim.SetFloat("Speed", input.sqrMagnitude);
+
+        if (input.sqrMagnitude == 0)
+        {
+            //Idle
+            anim.SetFloat("PrevX", prevInput.x);
+            anim.SetFloat("PrevY", prevInput.y);
+        }
+        else
+        {
+            //Movement
+            anim.SetFloat("XAxis", input.x);
+            anim.SetFloat("YAxis", input.y);
+            prevInput = input;
+        }
+
 
         //Rotation
 
         switch (input)
         {
             case var _ when input.y < 0:
-                Quaternion newRotation = Quaternion.Euler(0, 0, 0);
-                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
+                shotPoint.rotation = Quaternion.Euler(0, 0, 180);
+                attack.direction = 3;
+                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.y > 0:
-                newRotation = Quaternion.Euler(0, 0, 180);
-                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
+                shotPoint.rotation = Quaternion.Euler(0, 0, 0);
+                attack.direction = 2;
+                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.x < 0:
-                newRotation = Quaternion.Euler(0, 0, 270);
-                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
+                shotPoint.rotation = Quaternion.Euler(0, 0, 90);
+                attack.direction = 0;
+                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
                 break;
             case var _ when input.x > 0:
-                newRotation = Quaternion.Euler(0, 0, 90);
-                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
+                shotPoint.rotation = Quaternion.Euler(0, 0, 270);
+                attack.direction = 1;
+                // transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
+                break;
+
+            case var _ when input.x == 0 && input.y == 0:
                 break;
         }
 
