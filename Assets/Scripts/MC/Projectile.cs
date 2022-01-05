@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
+        CameraShake.Trauma = 0.2f;
         Instantiate(Explosion,transform.position, transform.rotation);
         Destroy(gameObject);
     }
