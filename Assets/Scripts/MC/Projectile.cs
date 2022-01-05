@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     }
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, _stats.distance, _stats.bossLayer);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, _stats.distance, _stats.bossLayer);
         if (hitInfo.collider != null){
             hitInfo.collider.GetComponent<Boss>().takeDamage(_stats.damageAmount);
             DestroyProjectile();
