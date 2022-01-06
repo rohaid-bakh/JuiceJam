@@ -15,7 +15,7 @@ MonoBehaviour:
   projectileName: Test Projectile
   damageAmount: 20
   attackCoolDown: 1
-  speed: 70
+  speed: 20
   distance: 0.5
   lifeTime: 1
   launch: {fileID: 0}
