@@ -10,6 +10,9 @@ public class BossStats : ScriptableObject
     public int healthAmount;
     public float attackCoolDown;
     public float speed;
+    public float flashDuration;
+    public Material hitFlash;
+    public GameObject BossExplosion;
     public AudioClip Hit;
 
 }

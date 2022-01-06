@@ -5,8 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileStats _stats;
-    [SerializeField] private LayerMask bossLayer;
-    [SerializeField] private GameObject Explosion;
+   
 
     void Start()
     {
@@ -14,7 +13,7 @@ public class Projectile : MonoBehaviour
     }
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, _stats.distance, bossLayer);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, _stats.distance, _stats.bossLayer);
         if (hitInfo.collider != null){
             hitInfo.collider.GetComponent<Boss>().takeDamage(_stats.damageAmount);
             DestroyProjectile();
@@ -25,7 +24,7 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         CameraShake.Trauma = 0.2f;
-        Instantiate(Explosion,transform.position, transform.rotation);
+        Instantiate(_stats.explosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

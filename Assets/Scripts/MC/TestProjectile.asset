@@ -15,7 +15,11 @@ MonoBehaviour:
   projectileName: Test Projectile
   damageAmount: 20
   attackCoolDown: 1
-  speed: 20
+  speed: 10
   distance: 0.5
-  lifeTime: 1
+  lifeTime: 0.5
+  bossLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  explosion: {fileID: 6953635384701366619, guid: 8a9439b5775c4234f97967d4ea36effb, type: 3}
   launch: {fileID: 0}
