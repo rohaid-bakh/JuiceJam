@@ -20,11 +20,12 @@ public class Attacks : MonoBehaviour
     [Header("Projectile Stats")]
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
-
+   
     [Header("Cool Down")]
     [SerializeField] private float rangeCooldown = .6f;
     [SerializeField] private float meleeCooldown = .6f;
 
+    
    
     void Awake()
     {
@@ -42,6 +43,7 @@ public class Attacks : MonoBehaviour
     {
         _playerInputActions.Attack.Disable();
         _playerInputActions.Attack.Melee.Disable();
+        _playerInputActions.Attack.Ranged.Disable();
     }
 
     public void MeleeAttack()
@@ -58,7 +60,6 @@ public class Attacks : MonoBehaviour
             StartCoroutine(MeleeAttackWait());
         }
     }
-
     public void RangedAttack()
     {
         if (rangedAttack)
