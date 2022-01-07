@@ -11,19 +11,20 @@ public class Attacks : MonoBehaviour
     [SerializeField] protected Transform[] weapon;
     // 0 is Left, 1 is Right , 2 is Up, 3 is Down
     public int direction;
-    [Header("Ranged Weapon Range")]
-    [SerializeField] protected float weaponRange;
-    public LayerMask bossLayer;
-    private bool meleeAttack = true;
-    private bool rangedAttack = true;
+    [Header("Ranged Weapon")]
+    [SerializeField] private RangedStats _rangedStats;
+    
 
     [Header("Projectile Stats")]
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
+    
    
     [Header("Cool Down")]
     [SerializeField] private float rangeCooldown = .6f;
     [SerializeField] private float meleeCooldown = .6f;
+    private bool meleeAttack = true;
+    private bool rangedAttack = true;
 
     
    
@@ -50,10 +51,10 @@ public class Attacks : MonoBehaviour
     {
         if (meleeAttack)
         {
-            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, weaponRange, bossLayer);
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _rangedStats.weaponRange, _rangedStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
-                boss.GetComponent<Boss>().takeDamage(10f);
+                boss.GetComponent<Boss>().takeDamage(_rangedStats.damage);
                 CameraShake.Trauma = 0.22f;
             }
             meleeAttack = false;
@@ -77,7 +78,7 @@ public class Attacks : MonoBehaviour
     }
     protected IEnumerator RangedAttackWait()
     {
-        yield return new WaitForSeconds(rangeCooldown);
+        yield return new WaitForSeconds(_rangedStats.coolDown);
         rangedAttack = true;
     }
 
@@ -87,6 +88,6 @@ public class Attacks : MonoBehaviour
         if (weapon == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(weapon[direction].position, weaponRange);
+        Gizmos.DrawWireSphere(weapon[direction].position, _rangedStats.weaponRange);
     }
 }

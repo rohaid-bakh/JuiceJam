@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileName: Test Projectile
   damageAmount: 20
-  attackCoolDown: 0.2
-  speed: 40
+  attackCoolDown: 0.01
+  speed: 60
   distance: 0.5
-  lifeTime: 1
+  lifeTime: 2
   bossLayer:
     serializedVersion: 2
     m_Bits: 8
