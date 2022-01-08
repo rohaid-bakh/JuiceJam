@@ -41,9 +41,7 @@ public class SteamKing : Boss
         }
     }
     public void Reset(){
-        Debug.Log("?");
           Boss.rotation = Quaternion.identity;
-          Debug.Log("Rotation" + Boss.rotation);
           rb.rotation = 0f;
     }
 

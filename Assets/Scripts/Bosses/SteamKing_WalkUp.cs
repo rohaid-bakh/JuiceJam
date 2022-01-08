@@ -12,7 +12,7 @@ public class SteamKing_WalkUp : StateMachineBehaviour
     private Vector2 move;
      public int isAttack;
 
-private float maxTimer = 10f;
+    private float maxTimer = 10f;
     private float timer;
     private float minTimer = 0f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
