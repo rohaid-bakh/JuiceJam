@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     InputAction movement;
     [Header("Movement")]
     public float movementSpeed = 3.0f;
-    float smooth = 3.0f;
     [Header("Animation")]
     [SerializeField] private Animator anim;
     private Vector2 prevInput;
@@ -83,6 +82,6 @@ public class PlayerController : MonoBehaviour
         }
 
         //Movement
-        transform.position = transform.position + new Vector3(input.x * Time.deltaTime * movementSpeed, input.y * Time.deltaTime * movementSpeed, 0);
+        transform.position += new Vector3(input.x * Time.deltaTime * movementSpeed, input.y * Time.deltaTime * movementSpeed, 0);
     }
 }
