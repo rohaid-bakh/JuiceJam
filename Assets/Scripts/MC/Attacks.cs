@@ -73,7 +73,7 @@ public class Attacks : MonoBehaviour
     }
     protected IEnumerator MeleeAttackWait()
     {
-        yield return new WaitForSeconds(meleeCooldown);
+        yield return new WaitForSeconds(_rangedStats.coolDown);
         meleeAttack = true;
     }
     protected IEnumerator RangedAttackWait()
