@@ -15,7 +15,7 @@ MonoBehaviour:
   projectileName: DefaultProjectile
   damageAmount: 10
   attackCoolDown: 0.1
-  speed: 40
+  speed: 60
   distance: 1
   lifeTime: 1
   bossLayer:

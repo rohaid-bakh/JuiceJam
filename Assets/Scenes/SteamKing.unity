@@ -387,9 +387,11 @@ GameObject:
   - component: {fileID: 948112030}
   - component: {fileID: 948112029}
   - component: {fileID: 948112031}
+  - component: {fileID: 948112035}
   - component: {fileID: 948112033}
   - component: {fileID: 948112034}
   - component: {fileID: 948112032}
+  - component: {fileID: 948112036}
   m_Layer: 3
   m_Name: SteamKing
   m_TagString: Untagged
@@ -476,7 +478,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.23396397, y: 0.14037943}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0.16678028}
     pivot: {x: 0.5, y: 0.5}
@@ -487,7 +489,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.666667, y: 14.009542}
+  m_Size: {x: 11.134596, y: 14.290301}
   m_EdgeRadius: 0
 --- !u!114 &948112032
 MonoBehaviour:
@@ -546,6 +548,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &948112035
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948112028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2339611, y: 0.04679489}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0.16678028}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.666667, y: 14.009542}
+    newSize: {x: 4, y: 5.2535787}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 12.444805, y: 15.974846}
+  m_EdgeRadius: 0
+--- !u!114 &948112036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948112028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a70ed893b06cab418e14996643144c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1176643896
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +889,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 8394945970169215894, guid: 56e6644928b8aba48a26fb1361d27673, type: 3}
+    - target: {fileID: 466067090288596065, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
+      propertyPath: _meleeStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 97c1089a602dcfe4f8f0cda2c88194ff, type: 2}
     - target: {fileID: 466067090288596065, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
       propertyPath: _rangedStats
       value: 

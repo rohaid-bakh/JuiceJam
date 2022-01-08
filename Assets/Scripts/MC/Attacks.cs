@@ -12,7 +12,7 @@ public class Attacks : MonoBehaviour
     // 0 is Left, 1 is Right , 2 is Up, 3 is Down
     public int direction;
     [Header("Ranged Weapon")]
-    [SerializeField] private RangedStats _rangedStats;
+    [SerializeField] private MeleeStats _meleeStats;
     
 
     [Header("Projectile Stats")]
@@ -21,7 +21,7 @@ public class Attacks : MonoBehaviour
     
    
     [Header("Cool Down")]
-    [SerializeField] private float rangeCooldown = .6f;
+    [SerializeField] private float rangeCooldown = .3f;
     [SerializeField] private float meleeCooldown = .6f;
     private bool meleeAttack = true;
     private bool rangedAttack = true;
@@ -51,10 +51,10 @@ public class Attacks : MonoBehaviour
     {
         if (meleeAttack)
         {
-            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _rangedStats.weaponRange, _rangedStats.bossLayer);
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _meleeStats.weaponRange, _meleeStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
-                boss.GetComponent<Boss>().takeDamage(_rangedStats.damage);
+                boss.GetComponent<Boss>().takeDamage(_meleeStats.damage);
                 CameraShake.Trauma = 0.22f;
             }
             meleeAttack = false;
@@ -73,12 +73,12 @@ public class Attacks : MonoBehaviour
     }
     protected IEnumerator MeleeAttackWait()
     {
-        yield return new WaitForSeconds(_rangedStats.coolDown);
+        yield return new WaitForSeconds(_meleeStats.coolDown);
         meleeAttack = true;
     }
     protected IEnumerator RangedAttackWait()
     {
-        yield return new WaitForSeconds(_rangedStats.coolDown);
+        yield return new WaitForSeconds(rangeCooldown);
         rangedAttack = true;
     }
 
@@ -88,6 +88,6 @@ public class Attacks : MonoBehaviour
         if (weapon == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(weapon[direction].position, _rangedStats.weaponRange);
+        Gizmos.DrawWireSphere(weapon[direction].position, _meleeStats.weaponRange);
     }
 }

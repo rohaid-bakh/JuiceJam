@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RangedStats", menuName = "MC/RangedStats")]
-public class RangedStats : ScriptableObject{
+[CreateAssetMenu(fileName = "MeleeStats", menuName = "MC/MeleeStats")]
+public class MeleeStats : ScriptableObject{
 
     public float damage;
     public float weaponRange;

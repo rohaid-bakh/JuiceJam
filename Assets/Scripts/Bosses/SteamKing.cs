@@ -25,6 +25,8 @@ public class SteamKing : Boss
             Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             shotPoint.localRotation = Quaternion.Euler(0f, 0f, 120f);
             Instantiate(projectile, shotPoint.position, shotPoint.rotation);
+            shotPoint.localRotation = Quaternion.Euler(0f, 0f, 150f);
+            Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             rangedAttack = false;
             CameraShake.Trauma = 0.4f;
             StartCoroutine(MeleeAttackWait());
