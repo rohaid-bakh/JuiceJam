@@ -41,7 +41,6 @@ public class Steam : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Hit Something, it's " + other.gameObject.name);
         if(other.gameObject.tag == "Player" && !isDamage){
            other.gameObject.GetComponent<PlayerHealth>().playerDamage(-1);
            isDamage = true;
