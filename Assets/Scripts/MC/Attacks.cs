@@ -11,20 +11,22 @@ public class Attacks : MonoBehaviour
     [SerializeField] protected Transform[] weapon;
     // 0 is Left, 1 is Right , 2 is Up, 3 is Down
     public int direction;
-    [Header("Ranged Weapon Range")]
-    [SerializeField] protected float weaponRange;
-    public LayerMask bossLayer;
-    private bool meleeAttack = true;
-    private bool rangedAttack = true;
+    [Header("Ranged Weapon")]
+    [SerializeField] private MeleeStats _meleeStats;
+    
 
     [Header("Projectile Stats")]
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
-
+    
+   
     [Header("Cool Down")]
-    [SerializeField] private float rangeCooldown = .6f;
+    [SerializeField] private float rangeCooldown = .3f;
     [SerializeField] private float meleeCooldown = .6f;
+    private bool meleeAttack = true;
+    private bool rangedAttack = true;
 
+    
    
     void Awake()
     {
@@ -42,23 +44,23 @@ public class Attacks : MonoBehaviour
     {
         _playerInputActions.Attack.Disable();
         _playerInputActions.Attack.Melee.Disable();
+        _playerInputActions.Attack.Ranged.Disable();
     }
 
     public void MeleeAttack()
     {
         if (meleeAttack)
         {
-            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, weaponRange, bossLayer);
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _meleeStats.weaponRange, _meleeStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
-                boss.GetComponent<Boss>().takeDamage(10f);
+                boss.GetComponent<Boss>().takeDamage(_meleeStats.damage);
                 CameraShake.Trauma = 0.22f;
             }
             meleeAttack = false;
             StartCoroutine(MeleeAttackWait());
         }
     }
-
     public void RangedAttack()
     {
         if (rangedAttack)
@@ -71,7 +73,7 @@ public class Attacks : MonoBehaviour
     }
     protected IEnumerator MeleeAttackWait()
     {
-        yield return new WaitForSeconds(meleeCooldown);
+        yield return new WaitForSeconds(_meleeStats.coolDown);
         meleeAttack = true;
     }
     protected IEnumerator RangedAttackWait()
@@ -86,6 +88,6 @@ public class Attacks : MonoBehaviour
         if (weapon == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(weapon[direction].position, weaponRange);
+        Gizmos.DrawWireSphere(weapon[direction].position, _meleeStats.weaponRange);
     }
 }
