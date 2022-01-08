@@ -95,8 +95,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d9a5770979155499e33f6fa1682d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 6ff31699f5ebbec46a373427d54743be, type: 2}
-  bossLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  Explosion: {fileID: 6953635384701366619, guid: 8a9439b5775c4234f97967d4ea36effb, type: 3}
+  _stats: {fileID: 11400000, guid: fce175e1a5f8a6a428641bf266aae51c, type: 2}

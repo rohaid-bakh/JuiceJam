@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteamKing_ShootBullets : StateMachineBehaviour
+public class SteamKing_ShootSteam : StateMachineBehaviour
 {
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
     private SteamKing script;
     public float time = 0f;
-    public float maxTime = 40f;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    public float maxTime = 20f;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       script = animator.GetComponent<SteamKing>();
+        script = animator.GetComponent<SteamKing>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,11 +22,10 @@ public class SteamKing_ShootBullets : StateMachineBehaviour
         if(time >= maxTime){
             script.Reset();
             time = 0f;
-            animator.SetBool("isBullet", false);
-        } else {
-            script.Shoot("Bullet");
-        }
-       
+            animator.SetBool("isSteam", false);
+        }else {
+            script.Shoot("Steam");
+        }    
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -33,5 +34,4 @@ public class SteamKing_ShootBullets : StateMachineBehaviour
        script.Reset();
     }
 
-    
 }

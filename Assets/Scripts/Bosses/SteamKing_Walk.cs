@@ -19,6 +19,8 @@ public class SteamKing_Walk : StateMachineBehaviour
     {
         Boss = animator.GetComponent<Transform>();
         rb = animator.GetComponent<Rigidbody2D>();
+        Boss.rotation = Quaternion.identity;
+        rb.rotation = 0f;
         GameObject parent = GameObject.Find("BossMovement/HorizontalMovement");
         for (int i = 0; i < parent.transform.childCount; i++)
         {
@@ -81,9 +83,11 @@ public class SteamKing_Walk : StateMachineBehaviour
     void Attack(Animator animator)
     {
         isAttack = (int)Random.Range(0, 1000);
-        if (isAttack % 4 == 0)
+        if (isAttack % 12 == 0)
         {
-            animator.SetBool("isAttack", true);
+            animator.SetBool("isBullet", true);
+        } else if (isAttack % 14 == 0) {
+            animator.SetBool("isSteam", true);
         }
     }
 
