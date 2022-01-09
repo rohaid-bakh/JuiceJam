@@ -15,9 +15,9 @@ MonoBehaviour:
   projectileName: TestBoss Steam
   damageAmount: 1
   attackCoolDown: 1
-  speed: 30
+  speed: 20
   distance: 2
-  lifeTime: 1
+  lifeTime: 2
   bossLayer:
     serializedVersion: 2
     m_Bits: 64

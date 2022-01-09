@@ -32,8 +32,8 @@ public class SteamKing : Boss
             CameraShake.Trauma = 0.4f;
             StartCoroutine(RangedAttackWait());
         } else if (rangedAttack && phase == "Steam") {
-            float randRot = Random.Range(0f,180f);
-            shotPoint.localRotation = Quaternion.Euler(0f, 0f, 150f);
+            float randRot = Random.Range(90f, 160f);
+            shotPoint.localRotation = Quaternion.Euler(0f, 0f, randRot);
             Instantiate(steam, shotPoint.position , shotPoint.rotation);
             rangedAttack = false;
             CameraShake.Trauma = 0.3f;

@@ -20,7 +20,6 @@ public class SteamKing_ShootSteam : StateMachineBehaviour
     {
         time += Time.fixedDeltaTime;
         if(time >= maxTime){
-            script.Reset();
             time = 0f;
             animator.SetBool("isSteam", false);
         }else {

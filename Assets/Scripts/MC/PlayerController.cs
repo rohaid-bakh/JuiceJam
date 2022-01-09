@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     InputAction movement;
     [Header("Movement")]
-    public float movementSpeed = 3.0f;
-    float smooth = 3.0f;
+    public float movementSpeed = 30.0f;
+    float smooth = 3.0f/10f;
+    private Rigidbody2D rb;
+    private Vector3 m_Velocity = Vector3.zero;
     [Header("Animation")]
     [SerializeField] private Animator anim;
     private Vector2 prevInput;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput();
         movement = new InputAction();
         attack = GetComponent<Attacks>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void OnEnable()
@@ -81,8 +84,11 @@ public class PlayerController : MonoBehaviour
             case var _ when input.x == 0 && input.y == 0:
                 break;
         }
-
-        //Movement
-        transform.position = transform.position + new Vector3(input.x * Time.deltaTime * movementSpeed, input.y * Time.deltaTime * movementSpeed, 0);
+        
+        Vector3 targetVelocity = new Vector2(input.x*movementSpeed*100, input.y*movementSpeed*100);
+         //Changed movement because setting transform.position manually ends up having the players clip through colliders.
+       Vector3 newPos = new Vector3(transform.position.x+(input.x*Time.deltaTime*movementSpeed), transform.position.y+(input.y*Time.deltaTime*movementSpeed),0);
+       rb.MovePosition(newPos);
+       
     }
 }

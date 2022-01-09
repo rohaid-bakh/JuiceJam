@@ -26,8 +26,16 @@ public class Steam : MonoBehaviour
             end = true;
             StartCoroutine(DestroySteam());
         } else if(!end) {
+            int speed = (int)Random.Range(5f, 30f);
             timeCount -= Time.fixedDeltaTime;
-            transform.Translate(Vector2.up * _stats.speed* multiplier * Time.fixedDeltaTime);
+            transform.Translate(Vector2.up * speed* multiplier * Time.fixedDeltaTime);
+        }
+
+        if(transform.position.x < -66f || transform.position.x > 66f){
+            Destroy(gameObject);
+        }
+        if(transform.position.y < -38 || transform.position.y > 38) {
+            Destroy(gameObject);
         }
         
     }
@@ -45,6 +53,8 @@ public class Steam : MonoBehaviour
            other.gameObject.GetComponent<PlayerHealth>().playerDamage(-1);
            isDamage = true;
            StartCoroutine(DamageLag());
+        } else if(other.gameObject.name == "Boundaries"){
+            DestroySteam();
         }
     }
      private IEnumerator DamageLag() {
