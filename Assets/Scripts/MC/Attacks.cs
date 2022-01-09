@@ -2,20 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class Attacks : MonoBehaviour
 {
+    
     protected PlayerInput _playerInputActions;
-    [SerializeField] protected Transform weapon;
-    [SerializeField] protected float weaponRange;
-    public LayerMask bossLayer;
-    private bool meleeAttack = true;
-    private bool rangedAttack = true;
+    [Header("Ranged Weapon Direction")]
+    [SerializeField] protected Transform[] weapon;
+    // 0 is Left, 1 is Right , 2 is Up, 3 is Down
+    public int direction;
+    [Header("Ranged Weapon")]
+    [SerializeField] private MeleeStats _meleeStats;
+    
+
+    [Header("Projectile Stats")]
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Transform shotPoint;
+    
+   
+    [Header("Cool Down")]
+    [SerializeField] private float rangeCooldown = .3f;
+    [SerializeField] private float meleeCooldown = .6f;
+    private bool meleeAttack = true;
+    private bool rangedAttack = true;
+
+    [Header("Sound")]
+    [SerializeField] protected MC_Sounds _sounds; 
+    AudioSource source;
+
+    
+   
     void Awake()
     {
         _playerInputActions = new PlayerInput();
+        source = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -29,48 +50,58 @@ public class Attacks : MonoBehaviour
     {
         _playerInputActions.Attack.Disable();
         _playerInputActions.Attack.Melee.Disable();
+        _playerInputActions.Attack.Ranged.Disable();
     }
 
     public void MeleeAttack()
     {
         if (meleeAttack)
         {
-            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon.position, weaponRange, bossLayer);
+            float pitch = Random.Range(8f,10f)/10f;
+            source.clip = _sounds.randomSound("Melee");
+            source.pitch = pitch;
+            source.Play();
+            Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _meleeStats.weaponRange, _meleeStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
-                boss.GetComponent<Boss>().takeDamage(10f);
+                boss.GetComponent<Boss>().takeDamage(_meleeStats.damage);
+                CameraShake.Trauma = 0.22f;
             }
             meleeAttack = false;
             StartCoroutine(MeleeAttackWait());
         }
     }
-
     public void RangedAttack()
     {
         if (rangedAttack)
         {
-            Instantiate(projectile, shotPoint.position, transform.rotation);
+            float pitch = Random.Range(8f,10f)/10f;
+            source.clip = _sounds.randomSound("Ranged");
+            source.pitch = pitch;
+            source.Play();
+            Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             rangedAttack = false;
+            CameraShake.Trauma = 0.4f;
             StartCoroutine(RangedAttackWait());
         }
     }
     protected IEnumerator MeleeAttackWait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_meleeStats.coolDown);
         meleeAttack = true;
     }
     protected IEnumerator RangedAttackWait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(rangeCooldown);
         rangedAttack = true;
     }
 
-    //UNCOMMENT WHEN DEBUGGING
-    // void OnDrawGizmos()
-    // {
-    //     if (weapon == null) return;
+    // UNCOMMENT WHEN DEBUGGING
+    void OnDrawGizmos()
+    {
+        if (weapon == null) return;
 
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(weapon.position, weaponRange);
-    // }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(weapon[direction].position, _meleeStats.weaponRange);
+    }
 }

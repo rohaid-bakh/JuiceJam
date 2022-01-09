@@ -59,50 +59,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""8acb4de3-2dbb-4c6f-9e60-703288ee612a"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""44961502-9300-4e7c-8574-aaf7b126fba8"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""398028f8-b25f-4ff2-9a22-311bcb372ba7"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""5c11c3b2-b74a-4446-b8e9-560e4d8e1a5e"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""WASD"",
                     ""id"": ""4474da11-bcbd-47ba-8080-49e0996a7ada"",
                     ""path"": ""2DVector"",
@@ -218,7 +174,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Arrow Keys;WASD"",
+                    ""groups"": ""WASD"",
                     ""action"": ""DodgeRoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -226,7 +182,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""34511705-7120-43da-b6a1-1e7472a16753"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -257,24 +213,22 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateShot"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""9e8415dc-9efd-4087-a268-56c2313285af"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""a059abb6-b92a-4e96-90fa-54937a3f0c89"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Melee"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6d5ca041-a256-4d7b-84c6-dacad827e0a0"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""WASD"",
@@ -295,19 +249,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5d76c5f8-029f-41a7-81ed-b2848103d406"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Arrow Keys"",
-                    ""action"": ""Ranged"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""353d9234-7bce-4b47-b185-c236cb37d7a7"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""WASD"",
@@ -325,22 +268,33 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Ranged"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d8f5b6f-0f65-4e5f-99a2-8c56e9e5176e"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""WASD"",
+                    ""action"": ""RotateShot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6de6c18a-dad6-41ed-a00d-415e656f4341"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""RotateShot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": [
-        {
-            ""name"": ""Arrow Keys"",
-            ""bindingGroup"": ""Arrow Keys"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
         {
             ""name"": ""WASD"",
             ""bindingGroup"": ""WASD"",
@@ -361,6 +315,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
         m_Attack_Melee = m_Attack.FindAction("Melee", throwIfNotFound: true);
         m_Attack_Ranged = m_Attack.FindAction("Ranged", throwIfNotFound: true);
+        m_Attack_RotateShot = m_Attack.FindAction("RotateShot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -463,12 +418,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IAttackActions m_AttackActionsCallbackInterface;
     private readonly InputAction m_Attack_Melee;
     private readonly InputAction m_Attack_Ranged;
+    private readonly InputAction m_Attack_RotateShot;
     public struct AttackActions
     {
         private @PlayerInput m_Wrapper;
         public AttackActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Melee => m_Wrapper.m_Attack_Melee;
         public InputAction @Ranged => m_Wrapper.m_Attack_Ranged;
+        public InputAction @RotateShot => m_Wrapper.m_Attack_RotateShot;
         public InputActionMap Get() { return m_Wrapper.m_Attack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -484,6 +441,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Ranged.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnRanged;
                 @Ranged.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnRanged;
                 @Ranged.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnRanged;
+                @RotateShot.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnRotateShot;
+                @RotateShot.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnRotateShot;
+                @RotateShot.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnRotateShot;
             }
             m_Wrapper.m_AttackActionsCallbackInterface = instance;
             if (instance != null)
@@ -494,19 +454,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Ranged.started += instance.OnRanged;
                 @Ranged.performed += instance.OnRanged;
                 @Ranged.canceled += instance.OnRanged;
+                @RotateShot.started += instance.OnRotateShot;
+                @RotateShot.performed += instance.OnRotateShot;
+                @RotateShot.canceled += instance.OnRotateShot;
             }
         }
     }
     public AttackActions @Attack => new AttackActions(this);
-    private int m_ArrowKeysSchemeIndex = -1;
-    public InputControlScheme ArrowKeysScheme
-    {
-        get
-        {
-            if (m_ArrowKeysSchemeIndex == -1) m_ArrowKeysSchemeIndex = asset.FindControlSchemeIndex("Arrow Keys");
-            return asset.controlSchemes[m_ArrowKeysSchemeIndex];
-        }
-    }
     private int m_WASDSchemeIndex = -1;
     public InputControlScheme WASDScheme
     {
@@ -534,5 +488,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMelee(InputAction.CallbackContext context);
         void OnRanged(InputAction.CallbackContext context);
+        void OnRotateShot(InputAction.CallbackContext context);
     }
 }
