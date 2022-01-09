@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 20223787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: L_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20223786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2, y: 0, z: 0}
+  m_LocalPosition: {x: -6.89, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3768915270154584463}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346163429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2352312530859145067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: U_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814893094729285266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.27, z: 0}
+  m_LocalPosition: {x: 0, y: 6.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3768915270154584463}
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 2435787964905695171}
   - component: {fileID: 466067090288596065}
   - component: {fileID: 7083258671370214734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DamageTestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,18 +194,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009590909, y: 0}
+  m_Offset: {x: 0.015845299, y: -0.3052292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66077065, y: 1}
+  m_Size: {x: 4.9848385, y: 7.5115395}
   m_EdgeRadius: 0
 --- !u!50 &2435787964905695175
 Rigidbody2D:
@@ -227,7 +227,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!95 &2435787965166624962
 Animator:
   serializedVersion: 3
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847a6adec42d8a643b2f669e64778091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 40
   anim: {fileID: 2435787965166624962}
   shotPoint: {fileID: 1346163429}
 --- !u!114 &466067090288596065
@@ -293,13 +293,12 @@ MonoBehaviour:
   - {fileID: 4233476921056384271}
   - {fileID: 2352312530859145067}
   - {fileID: 458349240377210666}
-  weaponRange: 0.75
-  bossLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  projectile: {fileID: 434000656074967625, guid: fe13f39f8ced125458a648a181574157, type: 3}
-  shotPoint: {fileID: 1346163429}
   direction: 0
+  _meleeStats: {fileID: 11400000, guid: 97c1089a602dcfe4f8f0cda2c88194ff, type: 2}
+  projectile: {fileID: 8394945970169215894, guid: 56e6644928b8aba48a26fb1361d27673, type: 3}
+  shotPoint: {fileID: 1346163429}
+  rangeCooldown: 0.3
+  meleeCooldown: 0.6
 --- !u!114 &7083258671370214734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4233476921056384271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: R_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3271676984598546438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.07, y: 0, z: 0}
+  m_LocalPosition: {x: 7.29, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3768915270154584463}
@@ -352,7 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 458349240377210666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: D_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7161134198215547613}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.27, z: 0}
+  m_LocalPosition: {x: 0, y: -8.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3768915270154584463}
@@ -382,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3768915270154584463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
