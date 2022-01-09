@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecea85a3518de84b9b8514f20278630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleport: []
+  tentacle: {fileID: 0}
+  spawnCooldown: 5
 --- !u!4 &366157898
 Transform:
   m_ObjectHideFlags: 0
@@ -660,6 +663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041e02eeca71bd84faf64db23e1c22e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 0}
+  CurrHealth: 100
+  movementCooldown: 1
+  speed: 3
 --- !u!224 &997933869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -777,12 +784,26 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1481277856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481277854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056f535b6b864514cbc4c0e0c26ed9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementCooldown: 1
+  speed: 3
 --- !u!1001 &1645923232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,6 +858,10 @@ PrefabInstance:
     - target: {fileID: 2435787964905695172, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435787964905695174, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0de9c75459971664b80bab23dbc2f34b, type: 3}
