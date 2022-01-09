@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class Attacks : MonoBehaviour
 {
@@ -26,11 +27,16 @@ public class Attacks : MonoBehaviour
     private bool meleeAttack = true;
     private bool rangedAttack = true;
 
+    [Header("Sound")]
+    [SerializeField] protected MC_Sounds _sounds; 
+    AudioSource source;
+
     
    
     void Awake()
     {
         _playerInputActions = new PlayerInput();
+        source = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -51,6 +57,10 @@ public class Attacks : MonoBehaviour
     {
         if (meleeAttack)
         {
+            float pitch = Random.Range(8f,10f)/10f;
+            source.clip = _sounds.randomSound("Melee");
+            source.pitch = pitch;
+            source.Play();
             Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _meleeStats.weaponRange, _meleeStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
@@ -65,6 +75,10 @@ public class Attacks : MonoBehaviour
     {
         if (rangedAttack)
         {
+            float pitch = Random.Range(8f,10f)/10f;
+            source.clip = _sounds.randomSound("Ranged");
+            source.pitch = pitch;
+            source.Play();
             Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             rangedAttack = false;
             CameraShake.Trauma = 0.4f;

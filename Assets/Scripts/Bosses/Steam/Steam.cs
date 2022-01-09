@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Steam : MonoBehaviour
 {
     [SerializeField] private ProjectileStats _stats;
@@ -18,6 +17,7 @@ public class Steam : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timeCount = maxTime;
     }
+
 
     void FixedUpdate()
     {

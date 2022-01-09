@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    [SerializeField] private BossStats _stats;
+    [SerializeField] protected BossStats _stats;
     [SerializeField] private float CurrHealth;
     private SpriteRenderer renderer;
-    private Material defaultMaterial;
+    protected Material defaultMaterial;
     private bool invunerable;
 
     void Awake()
@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
         defaultMaterial = renderer.material;
     }
 
-    public void takeDamage(float damage)
+    public virtual void takeDamage(float damage)
     {   
         if(!invunerable){
         CurrHealth -= damage;
