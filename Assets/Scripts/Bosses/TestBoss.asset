@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: Test Boss
   damageAmount: 10
-  healthAmount: 100
+  healthAmount: 300
   attackCoolDown: 1
   speed: 10
   flashDuration: 0.05

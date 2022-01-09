@@ -21,5 +21,5 @@ MonoBehaviour:
   bossLayer:
     serializedVersion: 2
     m_Bits: 64
-  explosion: {fileID: 6953635384701366619, guid: 8a9439b5775c4234f97967d4ea36effb, type: 3}
+  explosion: {fileID: 5324966379866075801, guid: 89d68c86b88c2f143ab86d19d07eb3f8, type: 3}
   launch: {fileID: 0}

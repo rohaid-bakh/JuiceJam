@@ -34,7 +34,7 @@ public class Boss : MonoBehaviour
 
     public IEnumerator Invunerable(){
         invunerable = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.7f);
         invunerable = false;
     }
     private void DestroySelf(){
