@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class PlayerHealth : MonoBehaviour
 {
     float maxHealth = 5.0f;
-    float currentHealth;
+    public float currentHealth;
     bool isDamage = false;
     [SerializeField] private Material hitFlash;
     private SpriteRenderer renderer;
