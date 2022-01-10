@@ -31,12 +31,15 @@ public class Attacks : MonoBehaviour
     [SerializeField] protected MC_Sounds _sounds; 
     AudioSource source;
 
+    [Header("Pause")]
+    protected PlayerController script;
     
    
     void Awake()
     {
         _playerInputActions = new PlayerInput();
         source = GetComponent<AudioSource>();
+       script = GetComponent<PlayerController>();
     }
 
     private void OnEnable()
@@ -55,7 +58,7 @@ public class Attacks : MonoBehaviour
 
     public void MeleeAttack()
     {
-        if (meleeAttack)
+        if (meleeAttack && !script.pause)
         {
             float pitch = Random.Range(8f,10f)/10f;
             source.clip = _sounds.randomSound("Melee");
@@ -73,7 +76,7 @@ public class Attacks : MonoBehaviour
     }
     public void RangedAttack()
     {
-        if (rangedAttack)
+        if (rangedAttack && !script.pause)
         {
             float pitch = Random.Range(8f,10f)/10f;
             source.clip = _sounds.randomSound("Ranged");

@@ -14,7 +14,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject Boss;
     [SerializeField] private MonoBehaviour[] PlayerScripts;
     [SerializeField] private AudioSource Sound;
+    [SerializeField] private AudioLowPassFilter filter;
     [SerializeField] private GameObject GUI;
+
+    void Awake(){
+        Sound.volume = .5f;
+        filter.enabled = true;
+    }
 
     public void StartGame()
     {
@@ -25,7 +31,8 @@ public class MainMenu : MonoBehaviour
         }
         Boss.SetActive(true);
         GUI.SetActive(true);
-        Sound.Play();
+        Sound.volume = 1f;
+        filter.enabled = false;
     }
 
     public void OpenControls()

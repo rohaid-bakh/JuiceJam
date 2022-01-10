@@ -13,11 +13,15 @@ public class DodgeRoll : MonoBehaviour
     [SerializeField] protected MC_Sounds _sounds; 
     AudioSource source;
 
+    [Header("Pause")]
+    protected PlayerController script;
+
     void Awake()
     {
         _playerInputActions = new PlayerInput();
         fixedDeltaTime = Time.fixedDeltaTime;
         source = GetComponent<AudioSource>();
+        script = GetComponent<PlayerController>();
     }
 
     private void OnEnable()
@@ -33,7 +37,7 @@ public class DodgeRoll : MonoBehaviour
     }
 
     private void Dodge(){
-        if(hitbox.enabled){
+        if(hitbox.enabled && !script.pause){
         source.clip = _sounds.dodgeSound;
         source.pitch = 1;
         source.Play();

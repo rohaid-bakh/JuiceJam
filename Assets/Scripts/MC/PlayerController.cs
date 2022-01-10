@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [Header("Direction")]
     [SerializeField] Transform shotPoint;
 
+    public bool pause = false;
+
     void Awake()
 
     {
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if(!pause){
         Vector2 input = movement.ReadValue<Vector2>().normalized;
 
         anim.SetFloat("Speed", input.sqrMagnitude); // Needed to see if at rest/not
@@ -89,6 +93,11 @@ public class PlayerController : MonoBehaviour
          //Changed movement because setting transform.position manually ends up having the players clip through colliders.
        Vector3 newPos = new Vector3(transform.position.x+(input.x*Time.deltaTime*movementSpeed), transform.position.y+(input.y*Time.deltaTime*movementSpeed),0);
        rb.MovePosition(newPos);
+        }
        
+    }
+
+    public void setPause(){
+        pause = !pause;
     }
 }
