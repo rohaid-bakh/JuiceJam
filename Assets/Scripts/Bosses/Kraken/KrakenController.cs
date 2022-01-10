@@ -9,11 +9,15 @@ public class KrakenController : MonoBehaviour
     private SpriteRenderer renderer;
     private Material defaultMaterial;
 
+    Rigidbody2D rb;
+
     void Awake()
     {
         CurrHealth = _stats.healthAmount;
         renderer = GetComponent<SpriteRenderer>();
         defaultMaterial = renderer.material;
+
+        rb = GetComponent<Rigidbody2D>();
     }
     public void takeDamage(float damage)
     {
