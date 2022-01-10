@@ -4,37 +4,46 @@ using UnityEngine;
 
 public class Tentacles : MonoBehaviour
 {
-    [SerializeField] Transform[] teleport;
     [SerializeField] GameObject tentacle;
-    [SerializeField] float spawnCooldown = 5f;
-    bool spawnTentacle = true;
+    [SerializeField] Transform spawnPoint1;
+    [SerializeField] Transform spawnPoint2;
+
+    [SerializeField] float spawnCooldown = 20f;
+
+    [SerializeField] float maxTimer = 10f;
+    float timer;
+    float minTimer = 0f;
+
+    Animator animator;
 
     void Start()
     {
-        int spawn = Random.Range(0, 7);
+        animator = tentacle.GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
-        if (spawnTentacle)
+        if (timer <= minTimer)
         {
-            //foreach (int x in Random.Range(1, 3))
-            //{
-                //SpawnTentacle();
-            //}
-            spawnTentacle = false;
-            StartCoroutine(SpawnTentacleWait());
+            timer = maxTimer;
+            SpawnTentacle();
+        }
+        else
+        {
+            timer -= Time.fixedDeltaTime;
         }
     }
 
     void SpawnTentacle()
     {
-        //Instantiate(tentacle, teleport[spawn].position);
+        Instantiate(tentacle, spawnPoint1);
+        Instantiate(tentacle, spawnPoint2);
+        Debug.Log("Tentacle prefab has been instantiated.");
+        StartCoroutine(SpawnTentacleWait());
     }
 
     protected IEnumerator SpawnTentacleWait()
     {
         yield return new WaitForSeconds(spawnCooldown);
-        spawnTentacle = true;
     }
 }

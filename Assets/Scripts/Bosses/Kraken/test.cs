@@ -26,12 +26,10 @@ public class test : MonoBehaviour
             if (transform.position.x >= -60)
             {
                 transform.position = Vector2.MoveTowards(rb.position, position1, speed * Time.deltaTime);
-                Debug.Log(transform.position);
             }
             else if (transform.position.x <= 60)
             {
                 transform.position = Vector2.MoveTowards(rb.position, position2, speed * Time.deltaTime);
-                Debug.Log(transform.position);
             }
 
         }
