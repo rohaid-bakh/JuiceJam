@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [Header("UI elements")]
+    [Header("UI Graphics")]
     [SerializeField] private GameObject MMenu;
     [SerializeField] private GameObject BG;
     [SerializeField] private GameObject ControlMenu;
     [SerializeField] private GameObject CreditsMenu;
+    
+    [Header("UI Sounds")]
+    [SerializeField] private AudioClip[] clips = new AudioClip[2];
+    //0 is default click // 1 is exit sound
+    [SerializeField] private AudioSource source;
 
     [Header("Start Objects")]
     [SerializeField] private GameObject Boss;
@@ -16,6 +21,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioSource Sound;
     [SerializeField] private AudioLowPassFilter filter;
     [SerializeField] private GameObject GUI;
+
+   
 
     void Awake(){
         Sound.volume = .5f;
@@ -57,5 +64,17 @@ public class MainMenu : MonoBehaviour
     {
         CreditsMenu.SetActive(false);
         MMenu.SetActive(true);
+    }
+
+    public void PlayClick()
+    {
+        source.clip = clips[0];
+        source.Play();
+    }
+
+    public void PlayClose()
+    {
+        source.clip = clips[1];
+        source.Play();
     }
 }

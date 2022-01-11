@@ -19,6 +19,7 @@ public class Steam : MonoBehaviour
     }
 
 
+
     void FixedUpdate()
     {
         float multiplier = Random.Range(10f,13f) * .34f;
@@ -43,7 +44,7 @@ public class Steam : MonoBehaviour
     protected IEnumerator DestroySteam()
     {
          yield return new WaitForSeconds(10f);
-        Instantiate(_stats.explosion, transform.position, transform.rotation);
+        // Instantiate(_stats.explosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

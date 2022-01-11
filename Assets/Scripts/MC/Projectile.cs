@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
             DestroyProjectile();
         }
         transform.Translate(Vector2.up * _stats.speed * Time.deltaTime);
+        //  Debug.DrawRay(transform.position, (transform.up*_stats.distance), Color.green);
     }
 
     void DestroyProjectile()

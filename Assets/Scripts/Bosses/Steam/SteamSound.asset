@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SteamSound
   m_EditorClassIdentifier: 
   steamSound: {fileID: 8300000, guid: 82f58750f8c944e4bb7260bc6c021b68, type: 3}
-  bulletSound: {fileID: 8300000, guid: d5bb6e40b0f408541b06e80e722ec067, type: 3}
-  hurtSound: {fileID: 8300000, guid: a072cde21c8d0d04ebb3ff187030c588, type: 3}
+  bulletSound: {fileID: 8300000, guid: a072cde21c8d0d04ebb3ff187030c588, type: 3}
+  hurtSound: {fileID: 8300000, guid: d5bb6e40b0f408541b06e80e722ec067, type: 3}

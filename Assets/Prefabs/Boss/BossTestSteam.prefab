@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70607278008694338, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 70607278008694338, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,9 +63,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 70607278008694339, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7133071459950599638, guid: 66ceb0dc177d824459c5cdfc59361480, type: 3}
     - target: {fileID: 70607278008694364, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
       propertyPath: m_Name
       value: BossTestSteam
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049642586853767803, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: b10529ab92cdd8e4382d3138db6497ea, type: 2}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Size.x
+      value: 5.8223586
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Size.y
+      value: 4.8515205
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.47900653
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.40749216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085955879529731083, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2457489793953576968, guid: 424547a694b3c8243b289332e81eb5de, type: 3}
@@ -85,21 +117,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.095751286, y: 0.00000011920929}
+  m_Offset: {x: 0.2615478, y: 0.3572992}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2128506, y: 4.851123}
+  m_Size: {x: 7.5948462, y: 6.5185194}
   m_EdgeRadius: 0
 --- !u!114 &7567410346518726245
 MonoBehaviour:

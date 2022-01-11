@@ -33,6 +33,9 @@ public class Attacks : MonoBehaviour
 
     [Header("Pause")]
     protected PlayerController script;
+
+    [Header("Animation")]
+    protected Animator anim;
     
    
     void Awake()
@@ -40,6 +43,7 @@ public class Attacks : MonoBehaviour
         _playerInputActions = new PlayerInput();
         source = GetComponent<AudioSource>();
        script = GetComponent<PlayerController>();
+       anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -59,7 +63,7 @@ public class Attacks : MonoBehaviour
     public void MeleeAttack()
     {
         if (meleeAttack && !script.pause)
-        {
+        {   anim.SetTrigger("isAttack");
             float pitch = Random.Range(8f,10f)/10f;
             source.clip = _sounds.randomSound("Melee");
             source.pitch = pitch;
