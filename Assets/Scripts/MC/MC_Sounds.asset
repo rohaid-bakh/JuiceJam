@@ -16,9 +16,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dc82aa86aed0ec646baac6a55b54e58c, type: 3}
   - {fileID: 8300000, guid: f1066d548b701504e8b0b101069a0d06, type: 3}
   rangedSound:
-  - {fileID: 8300000, guid: d9aa274f559ee834fb12f86c63027865, type: 3}
-  - {fileID: 8300000, guid: 161327e6181c7d14292e91d3ebf85845, type: 3}
-  - {fileID: 8300000, guid: f1066d548b701504e8b0b101069a0d06, type: 3}
+  - {fileID: 8300000, guid: 5d41d1ecf3510b94c9b2b6032fc1295f, type: 3}
+  - {fileID: 8300000, guid: d3c0e963a79098a4c936ed02d380aa13, type: 3}
   dodgeSound: {fileID: 8300000, guid: c982be3b7e2c63e41b23aaa38e106ced, type: 3}
   hurtSound: {fileID: 8300000, guid: c894248a03c2cb944a9355fe58079bc7, type: 3}
   emptySound: {fileID: 8300000, guid: f1066d548b701504e8b0b101069a0d06, type: 3}

@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     [Header("Start Objects")]
     [SerializeField] private GameObject Boss;
+    [SerializeField] private GameObject MC;
     [SerializeField] private MonoBehaviour[] PlayerScripts;
     [SerializeField] private AudioSource Sound;
     [SerializeField] private AudioLowPassFilter filter;
@@ -25,20 +26,21 @@ public class MainMenu : MonoBehaviour
    
 
     void Awake(){
-        Sound.volume = .5f;
+        Sound.volume = .4f;
         filter.enabled = true;
     }
 
     public void StartGame()
     {
         BG.SetActive(false);
+        MC.SetActive(true);
         for (int i = 0; i < PlayerScripts.Length; i++)
         {
             PlayerScripts[i].enabled = true;
-        }
+        } 
         Boss.SetActive(true);
         GUI.SetActive(true);
-        Sound.volume = 1f;
+        Sound.volume = .7f;
         filter.enabled = false;
     }
 

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b855dbf356e17be46a84cba47ca60cbf, type: 3}
   m_Name: DefaultMelee
   m_EditorClassIdentifier: 
-  damage: 15
-  weaponRange: 4
+  damage: 20
+  weaponRange: 7
   coolDown: 1
   bossLayer:
     serializedVersion: 2

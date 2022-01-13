@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SteamKing.unity
     guid: cc765c58853fbb74e9064d62d16a603b
   - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: a03046061a781b44db3ae86bfd66f3fe
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 4ba06b409d840524db3e359a6d1fa177
   m_configObjects: {}

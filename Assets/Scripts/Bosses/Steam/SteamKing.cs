@@ -23,8 +23,10 @@ public class SteamKing : Boss
 
     public override void takeDamage(float damage)
     {
+        if(!source.isPlaying){
         source.clip = _sound.hurtSound;
         source.Play();
+        }
         base.takeDamage(damage);
 
     }

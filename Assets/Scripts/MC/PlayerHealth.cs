@@ -31,9 +31,11 @@ public class PlayerHealth : MonoBehaviour
     public void playerDamage(float damage)
     {
         if(!isDamage){
+        if(!source.isPlaying){
         source.clip = _sounds.hurtSound;
         source.pitch = 1f;
         source.Play();
+        }
         currentHealth += damage;
         isDamage = true;
         StartCoroutine(HitFlash());

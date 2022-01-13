@@ -64,10 +64,13 @@ public class Attacks : MonoBehaviour
     {
         if (meleeAttack && !script.pause)
         {   anim.SetTrigger("isAttack");
+
+            if(!source.isPlaying){
             float pitch = Random.Range(8f,10f)/10f;
             source.clip = _sounds.randomSound("Melee");
             source.pitch = pitch;
             source.Play();
+            }
             Collider2D[] bosses = Physics2D.OverlapCircleAll(weapon[direction].position, _meleeStats.weaponRange, _meleeStats.bossLayer);
             foreach (Collider2D boss in bosses)
             {
@@ -82,10 +85,12 @@ public class Attacks : MonoBehaviour
     {
         if (rangedAttack && !script.pause)
         {
+            if(!source.isPlaying){
             float pitch = Random.Range(8f,10f)/10f;
             source.clip = _sounds.randomSound("Ranged");
             source.pitch = pitch;
             source.Play();
+            }
             Instantiate(projectile, shotPoint.position, shotPoint.rotation);
             rangedAttack = false;
             CameraShake.Trauma = 0.4f;

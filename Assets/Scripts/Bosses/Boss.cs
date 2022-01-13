@@ -8,7 +8,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private float CurrHealth;
     private SpriteRenderer renderer;
     protected Material defaultMaterial;
-    private bool invunerable;
+    public bool invunerable;
+    [SerializeField]private SceneTransit script;
 
     void Awake()
     {
@@ -27,14 +28,16 @@ public class Boss : MonoBehaviour
         }
         if (CurrHealth <= 0)
         {
+            script.EndScene();
            DestroySelf();
+           
         }
     
     }
 
     public IEnumerator Invunerable(){
         invunerable = true;
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(.5f);
         invunerable = false;
     }
     private void DestroySelf(){
@@ -49,5 +52,9 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(_stats.flashDuration);
         renderer.material = defaultMaterial;
 
+    }
+
+    public void setInvunerable(){
+        invunerable = !invunerable;
     }
 }
